@@ -26,4 +26,15 @@ public class ContractServiceTest {
 
         assert expectedContract.equals(persistedContract);
     }
+
+    @Test
+    public void shouldPersistContractsWithUniqueIds() {
+        Contract expectedContract1 = new Contract();
+        Contract expectedContract2 = new Contract();
+
+        String contractId1 = service.add(expectedContract1).getId();
+        String contractId2 = service.add(expectedContract2).getId();
+
+        assert !contractId1.equals(contractId2);
+    }
 }

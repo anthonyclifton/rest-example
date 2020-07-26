@@ -11,6 +11,16 @@ repositories {
     mavenCentral()
 }
 
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+mainClassName = 'com.tdawg.restExample.Application'
+
 dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:2.3.2.RELEASE'
+    compile 'org.springframework:spring-test:5.2.8.RELEASE'
+    compile 'org.springframework.boot:spring-boot-gradle-plugin:2.3.2.RELEASE'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
