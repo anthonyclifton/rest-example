@@ -3,6 +3,8 @@ package com.tdawg.restExample;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class ContractServiceTest {
     private ContractService service;
 
@@ -36,5 +38,20 @@ public class ContractServiceTest {
         String contractId2 = service.add(expectedContract2).getId();
 
         assert !contractId1.equals(contractId2);
+    }
+
+    @Test
+    public void shouldReturnAllContracts() {
+        Contract contract1 = new Contract();
+        Contract contract2 = new Contract();
+        Contract contract3 = new Contract();
+
+        service.add(contract1);
+        service.add(contract2);
+        service.add(contract3);
+
+        ArrayList<Contract> contracts = service.getAll();
+
+        assert contracts.size() == 3;
     }
 }
